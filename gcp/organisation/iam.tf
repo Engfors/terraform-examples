@@ -86,7 +86,7 @@ resource "google_organization_iam_policy" "organization" {
           members = [
             "group:gcp-security-admins@${var.domain}",
           ]
-          role = "roles/iam.securityReviewer"
+          role = "roles/iam.securitydeveloper"
         },
         {
           members = [

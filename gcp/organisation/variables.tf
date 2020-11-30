@@ -1,17 +1,33 @@
-variable "domain" {}
-variable "org_id" {}
-variable "billing_account" {}
-variable "organisation" {}
+variable "organisation" {
+  description = "Organisation Name"
+  type        = string
+  default     = "example"
+}
 
-variable "production_projects" {
-  type = set(string)
+variable "domain" {
+  description = "Organisation Domain"
+  type        = string
+  default     = "example.com"
 }
-variable "shared_production_projects" {
-  type = set(string)
+
+variable "org_id" {
+  description = "Organisation Google ID"
+  type        = string
 }
-variable "nonproduction_projects" {
-  type = set(string)
+
+variable "billing_account" {
+  description = "Billing account ID"
+  type        = string
 }
-variable "shared_nonproduction_projects" {
-  type = set(string)
+
+variable "root_folders" {
+  description = "Root Folders for the Organisation"
+  type        = set(string)
+  default     = ["example-infra", "unsorted"]
+}
+
+variable "example-infra_projects" {
+  description = "Projects inside `example-infra` folder"
+  type        = set(string)
+  default     = ["example-infra-terraform", "example-infra-operations", "example-infra-monitoring", "example-infra-host-vpc"]
 }
